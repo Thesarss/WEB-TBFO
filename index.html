@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morse Code Translator</title>
+    <title>TranslateM - Morse Code Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Morse Code Translator</h1>
-        <form method= 'POST'>
-            <div class="radio-group">
-                <label>
-                    <input type="radio" name="mode" value="text_to_morse" required> Text to Morse
-                </label>
-                <label>
-                    <input type="radio" name="mode" value="morse_to_text" required> Morse to Text
-                </label>
-            </div>
-            <textarea name="input_text" placeholder="Enter text or Morse code here..." required></textarea>
-            <button type="submit">Translate</button>
-        </form>
-        {% if result %}
-            <div class="result">Result: {{ result }}</div>
-        {% endif %}
+        <h1>Morse Code Converter</h1>
+        <div class="menu">
+            <button onclick="showInputToMorse()">Convert Text to Morse</button>
+            <button onclick="showInputToText()">Convert Morse to Text</button>
+        </div>
+        <div class="input-section" id="inputSection">
+            <textarea id="inputField" placeholder="Enter text or morse code here..."></textarea>
+            <button onclick="convert()">Convert</button>
+        </div>
+        <div class="output-section" id="outputSection">
+            <h2>Output:</h2>
+            <div id="output"></div>
+        </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

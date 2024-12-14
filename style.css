@@ -21,10 +21,15 @@ body {
 }
 
 h1 {
+    font-size: 24px;
     color: #444;
 }
 
-.menu button {
+.menu {
+    margin: 20px 0;
+}
+
+button {
     margin: 10px;
     padding: 10px 20px;
     font-size: 16px;
@@ -36,18 +41,21 @@ h1 {
     transition: background 0.3s;
 }
 
-.menu button:hover {
+button:hover {
     background: #45a049;
 }
 
+.input-section {
+    margin: 20px 0;
+}
+
 textarea {
-    width: 100%;
+    width: 90%;
     height: 80px;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
-    margin-bottom: 10px;
 }
 
 textarea:focus {
@@ -56,14 +64,15 @@ textarea:focus {
 }
 
 .output-section {
+    margin-top: 20px;
     background: #f9f9f9;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
-    margin-top: 20px;
 }
 
-p#output {
+#output {
     font-size: 18px;
+    color: #333;
     word-wrap: break-word;
 }
