@@ -5,27 +5,22 @@ class TranslateM {
         this.headPosition = 50;
     }
 
-    // Gerak kepala ke kiri
     gerakKeKiri() {
         this.headPosition -= 1;
     }
 
-    // Gerak kepala ke kanan
     gerakKeKanan() {
         this.headPosition += 1;
     }
 
-    // Membaca simbol dari pita
     bacaSimbol() {
         return this.tape[this.headPosition];
     }
 
-    // Menulis simbol pada pita
     tulisSimbol(simbol) {
         this.tape[this.headPosition] = simbol;
     }
 
-    // Logika transisi
     transisi(simbolInput) {
         if (this.state === 'q0') {
             if (simbolInput === '.') {
@@ -38,8 +33,6 @@ class TranslateM {
                 this.state = 'q2';
             } else if (simbolInput === ' ') {
                 this.gerakKeKanan();
-            } else {
-                this.gerakKeKanan();
             }
         } else if (this.state === 'q1' || this.state === 'q2') {
             if (simbolInput === '.' || simbolInput === '-') {
@@ -47,13 +40,10 @@ class TranslateM {
                 this.gerakKeKanan();
             } else if (simbolInput === ' ') {
                 this.state = 'q0';
-            } else {
-                this.state = 'q0';
             }
         }
     }
 
-    // Konversi teks ke Morse
     charKeMorse(text) {
         const morseDict = {
             'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
@@ -67,7 +57,6 @@ class TranslateM {
         return text.toUpperCase().split('').map(char => morseDict[char] || '').join(' ');
     }
 
-    // Konversi Morse ke teks
     morseKeChar(morseCode) {
         const reverseMorseDict = {
             '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F',
@@ -83,7 +72,7 @@ class TranslateM {
 }
 
 let translateM = new TranslateM();
-let mode = 'textToMorse'; // Mode default
+let mode = 'textToMorse';
 
 function setMode(newMode) {
     mode = newMode;

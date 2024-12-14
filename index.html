@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TranslateM - Morse Code Converter</title>
+    <title>Text to Morse Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Morse Code Converter</h1>
-        <div class="menu">
-            <button onclick="showInputToMorse()">Convert Text to Morse</button>
-            <button onclick="showInputToText()">Convert Morse to Text</button>
+        <h1>Text & Morse Code Converter</h1>
+        <p>Pilih mode untuk konversi:</p>
+
+        <!-- Tombol Mode -->
+        <div class="button-group">
+            <button onclick="setMode('textToMorse')">Teks ke Morse</button>
+            <button onclick="setMode('morseToText')">Morse ke Teks</button>
         </div>
-        <div class="input-section" id="inputSection">
-            <textarea id="inputField" placeholder="Enter text or morse code here..."></textarea>
-            <button onclick="convert()">Convert</button>
-        </div>
-        <div class="output-section" id="outputSection">
-            <h2>Output:</h2>
-            <div id="output"></div>
-        </div>
+
+        <!-- Input Field -->
+        <textarea id="inputField" placeholder="Masukkan Teks..."></textarea>
+
+        <!-- Tombol Konversi -->
+        <button onclick="convert()">Konversi</button>
+
+        <!-- Output -->
+        <div id="output" class="output"></div>
     </div>
+
+    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
