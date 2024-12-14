@@ -54,7 +54,16 @@ class TranslateM {
             '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..',
             '9': '----.', '0': '-----', '/': ' ', '?': '..--..'
         };
-        return text.toUpperCase().split('').map(char => morseDict[char] || '').join(' ');
+            return text
+        .toUpperCase()
+        .split(' ') // Pisahkan per kata
+        .map(word => word
+            .split('') // Pisahkan per karakter
+            .map(char => morseDict[char] || '') // Ubah ke Morse
+            .join(' ') // Gabungkan karakter dalam satu kata
+        )
+        .join(' / '); // Tambahkan spasi antar kata (garis miring `/` sebagai pemisah)
+}
     }
 
     morseKeChar(morseCode) {
