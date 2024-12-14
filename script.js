@@ -44,27 +44,27 @@ class TranslateM {
         }
     }
 
-charKeMorse(text) {
-    const morseDict = {
-        'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
-        'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
-        'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
-        'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
-        'Y': '-.--', 'Z': '--..', '1': '.----', '2': '..---', '3': '...--',
-        '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..',
-        '9': '----.', '0': '-----', '/': ' ', '?': '..--..'
-    };
-
-    return text
-        .toUpperCase()
-        .split(' ') // Pisahkan per kata
-        .map(word => word
-            .split('') // Pisahkan per karakter
-            .map(char => morseDict[char] || '') // Ubah ke Morse
-            .join(' ') // Gabungkan karakter dalam satu kata
-        )
-        .join(' / '); // Tambahkan spasi antar kata (garis miring `/` sebagai pemisah)
-}
+    charKeMorse(text) {
+        const morseDict = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+            'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+            'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+            'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+            'Y': '-.--', 'Z': '--..', '1': '.----', '2': '..---', '3': '...--',
+            '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..',
+            '9': '----.', '0': '-----', '/': ' ', '?': '..--..'
+        };
+    
+        return text
+            .toUpperCase()
+            .split(' ') // Pisahkan per kata
+            .map(word => word
+                .split('') // Pisahkan kata menjadi huruf
+                .map(char => morseDict[char] || '') // Ubah setiap huruf menjadi kode Morse
+                .join(' ') // Gabungkan huruf dalam satu kata dengan spasi antar huruf
+            )
+            .join(' / '); // Gabungkan kata dengan garis miring (/)
+    }
 
     morseKeChar(morseCode) {
         const reverseMorseDict = {
