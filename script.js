@@ -91,3 +91,36 @@ function convert() {
     }
     document.getElementById('output').innerText = output || 'Invalid input!';
 }
+
+function animateOutput(text) {
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerText = ''; // Kosongkan output sebelumnya
+    let index = 0;
+
+    function typeNextCharacter() {
+        if (index < text.length) {
+            outputDiv.innerText += text[index];
+            index++;
+            setTimeout(typeNextCharacter, 100); // Waktu jeda antar karakter (100 ms)
+        }
+    }
+
+    typeNextCharacter();
+}
+
+function convert() {
+    const input = document.getElementById('inputField').value.trim();
+    let output = '';
+
+    if (mode === 'textToMorse') {
+        output = translateM.charKeMorse(input);
+    } else if (mode === 'morseToText') {
+        output = translateM.morseKeChar(input);
+    }
+
+    if (output) {
+        animateOutput(output); // Panggil fungsi animasi jika output valid
+    } else {
+        document.getElementById('output').innerText = 'Invalid input!';
+    }
+}
