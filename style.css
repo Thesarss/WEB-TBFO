@@ -72,4 +72,6 @@ textarea {
     word-wrap: break-word;
     font-size: 1rem;
     min-height: 50px;
+    white-space: pre-wrap; /* Memastikan teks muncul sesuai spasi */
+    overflow: hidden; /* Untuk animasi jika teks panjang */
 }
